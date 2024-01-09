@@ -1,0 +1,11 @@
+.photo {
+  width: 100%;
+  max-width: 400px;
+  max-height: 500px;
+  height: auto;
+  display: block;
+}
+
+.header {
+  display: flex;
+}
