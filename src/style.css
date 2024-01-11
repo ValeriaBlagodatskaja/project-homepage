@@ -12,8 +12,13 @@
   width: 100%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.main-container {
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
 }
 
 body {
@@ -22,13 +27,15 @@ body {
   padding: 0;
   font-family: var(--ff-primary);
   font-weight: 300;
+  letter-spacing: 1px;
 }
 .photo {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   max-height: 600px;
   height: auto;
   display: block;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 8px;
 }
 
 img {
@@ -41,6 +48,7 @@ h2 {
   font-size: 1.7rem;
 }
 
+h1,
 h2,
 h3 {
   font-family: var(--ff-accent);
@@ -55,19 +63,27 @@ h3 {
     #0a3a2f,
     #001510
   );
-  padding: 60px;
+  padding: 80px;
 }
 
 .header-text-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 574px;
   max-height: 400px;
   height: auto;
+  background-color: #fff;
+  padding: 35px 20px;
+}
+
+.header-text {
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: ;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   max-width: 1024px;
   margin: 20px auto;
@@ -79,11 +95,17 @@ h3 {
   border: 1px solid black;
   padding: 20px;
   text-align: center;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
   overflow: hidden;
 }
 
-.my-work {
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    margin: 20px;
+  }
 }
 
 .address-container {
@@ -135,10 +157,4 @@ footer {
   max-height: 400px;
   height: auto;
   display: block;
-}
-
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
 }
