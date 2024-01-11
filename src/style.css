@@ -1,11 +1,144 @@
+:root {
+  --ff-primary: "Roboto", sans-serif;
+  --ff-accent: "Playfair Display", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff-primary);
+  font-weight: 300;
+}
 .photo {
   width: 100%;
   max-width: 400px;
-  max-height: 500px;
+  max-height: 600px;
   height: auto;
   display: block;
 }
 
+img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h2,
+h3 {
+  font-family: var(--ff-accent);
+}
+
 .header {
+  background-image: radial-gradient(
+    circle,
+    #00bf8f,
+    #00906f,
+    #06634e,
+    #0a3a2f,
+    #001510
+  );
+  padding: 60px;
+}
+
+.header-text-container {
+  width: 100%;
+  max-width: 500px;
+  max-height: 400px;
+  height: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1024px;
+  margin: 20px auto;
+  padding: 0px;
+}
+
+.card {
+  background-color: peachpuff;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.my-work {
+}
+
+.address-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.description {
+  font-size: 14px;
+  margin-top: 0;
+}
+
+footer {
+  background-image: radial-gradient(
+    circle,
+    #00bf8f,
+    #00906f,
+    #06634e,
+    #0a3a2f,
+    #001510
+  );
+  display: flex;
+  color: #fff;
+}
+
+.footer-container {
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mail-container,
+.phone-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.phone-icon,
+.message-icon {
+  width: 30px;
+  height: 30px;
+}
+.laptop {
+  width: 100%;
+  max-width: 550px;
+  max-height: 400px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
