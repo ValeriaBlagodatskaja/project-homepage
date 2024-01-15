@@ -32,10 +32,10 @@ body {
 .photo {
   width: 100%;
   max-width: 450px;
-  max-height: 600px;
+  max-height: auto;
   height: auto;
   display: block;
-  box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 5px;
 }
 
 img {
@@ -45,7 +45,7 @@ img {
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: 2em;
 }
 
 h1,
@@ -69,16 +69,20 @@ h3 {
 .header-text-container {
   width: 100%;
   max-width: 574px;
-  max-height: 400px;
+  max-height: auto;
   height: auto;
   background-color: #fff;
-  padding: 35px 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 8px;
 }
 
 .header-text {
   font-size: 20px;
   line-height: 1.6;
-  letter-spacing: ;
+}
+
+a {
+  text-decoration: none;
 }
 
 .grid-container {
@@ -92,20 +96,15 @@ h3 {
 
 .card {
   background-color: peachpuff;
-  border: 1px solid black;
+  border: 1px solid grey;
   padding: 20px;
   text-align: center;
   aspect-ratio: 1;
   overflow: hidden;
-}
-
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-  .card {
-    margin: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 3px 3px;
 }
 
 .address-container {
@@ -157,4 +156,88 @@ footer {
   max-height: 400px;
   height: auto;
   display: block;
+  margin: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 5px;
+}
+
+/* desktop (kood üleval) --> tablet (1024px - 600px) --> mobiil (600px - 320px) */
+/* Sellises järjekorras arenda. sa ei saa arendada desktop siis mobiil ja siis tablet. Samamoodi ei saa teha mobiil siis desktop ja siis tablet. */
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-text-container {
+    margin: 50px;
+    max-height: 450px;
+    left: 24%;
+    top: 24%;
+  }
+
+  .photo {
+    height: auto;
+    width: 450px;
+    left: 10%;
+    top: 7%;
+    margin-left: 0;
+    display: block;
+    position: absolute;
+  }
+
+  .empty-spacer {
+    width: 300px;
+    height: 250px;
+    float: left;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .card {
+    margin: 20px;
+  }
+
+  h1 {
+    margin-left: 20px;
+  }
+
+  .footer-container {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    margin: 20px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-text {
+    font-size: 16px;
+  }
+
+  .header-text-container {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .header {
+    padding: 0;
+  }
+
+  .laptop {
+    margin: 0;
+  }
 }
