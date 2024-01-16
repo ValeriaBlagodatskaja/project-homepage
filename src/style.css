@@ -32,10 +32,11 @@ body {
 .photo {
   width: 100%;
   max-width: 450px;
-  max-height: auto;
   height: auto;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 5px;
+  z-index: 1;
+  justify-self: flex-end;
 }
 
 img {
@@ -74,11 +75,16 @@ h3 {
   background-color: #fff;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 8px;
+  flex: 1;
 }
 
 .header-text {
   font-size: 20px;
   line-height: 1.6;
+}
+
+.empty-spacer {
+  display: none;
 }
 
 a {
@@ -98,7 +104,7 @@ a {
   background-color: peachpuff;
   border: 1px solid grey;
   padding: 20px;
-  text-align: center;
+
   aspect-ratio: 1;
   overflow: hidden;
   display: flex;
@@ -128,6 +134,7 @@ footer {
     #001510
   );
   display: flex;
+  justify-content: center;
   color: #fff;
 }
 
@@ -135,7 +142,13 @@ footer {
   margin-inline: auto;
   display: flex;
   align-items: center;
-  gap: 20px;
+}
+
+.contact-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .mail-container,
@@ -156,42 +169,48 @@ footer {
   max-height: 400px;
   height: auto;
   display: block;
-  margin: 25px;
+  margin: 25px 0;
   box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 5px;
 }
 
 /* desktop (kood üleval) --> tablet (1024px - 600px) --> mobiil (600px - 320px) */
 /* Sellises järjekorras arenda. sa ei saa arendada desktop siis mobiil ja siis tablet. Samamoodi ei saa teha mobiil siis desktop ja siis tablet. */
 
-@media only screen and (max-width: 1024px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .header-text-container {
-    margin: 50px;
-    max-height: 450px;
-    left: 24%;
-    top: 24%;
-  }
-
-  .photo {
-    height: auto;
-    width: 450px;
-    left: 10%;
-    top: 7%;
-    margin-left: 0;
-    display: block;
-    position: absolute;
-  }
-
+@media only screen and (max-width: 1024px) and (min-width: 601px) {
   .empty-spacer {
     width: 300px;
     height: 250px;
     float: left;
+    display: block;
+  }
+
+  .container {
+    width: auto;
+    position: relative;
+    margin: auto;
+    left: -8%;
+    top: 13%;
+  }
+
+  .photo {
+    position: absolute;
+    transform: translateY(-50%);
+    float: left;
+    top: 4%;
+    max-width: 70%;
+  }
+
+  .header {
+    height: 1000px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    padding-bottom: 20px;
+  }
+
+  .header-text-container {
+    position: relative;
+    left: 18%;
   }
 
   .grid-container {
@@ -209,19 +228,24 @@ footer {
 
   .footer-container {
     flex-direction: row;
+    margin: 0;
+    left: 0%;
+  }
+
+  .laptop {
+    margin: 20px;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-  .card {
-    margin: 20px;
-  }
-  .container {
-    display: flex;
+@media only screen and (max-width: 903px) {
+  .footer-container {
     flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 657px) {
+  .empty-spacer {
+    display: none;
   }
 
   .header-text {
@@ -231,12 +255,76 @@ footer {
   .header-text-container {
     background-color: transparent;
     box-shadow: none;
+    left: 0%;
   }
 
   .header {
     padding: 0;
   }
 
+  .photo {
+    position: relative;
+    transform: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    left: 0%;
+    top: 0%;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .empty-spacer {
+    display: none;
+  }
+
+  .header-text {
+    font-size: 16px;
+  }
+
+  .header-text-container {
+    background-color: transparent;
+    box-shadow: none;
+    left: 0%;
+  }
+
+  .header {
+    padding: 0;
+  }
+
+  .photo {
+    position: relative;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    left: 0%;
+    top: 0%;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    margin: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .my-work {
+    margin-left: 20px;
+  }
   .laptop {
     margin: 0;
   }
