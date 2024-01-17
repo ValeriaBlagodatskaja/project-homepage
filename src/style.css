@@ -173,9 +173,6 @@ footer {
   box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 5px;
 }
 
-/* desktop (kood üleval) --> tablet (1024px - 600px) --> mobiil (600px - 320px) */
-/* Sellises järjekorras arenda. sa ei saa arendada desktop siis mobiil ja siis tablet. Samamoodi ei saa teha mobiil siis desktop ja siis tablet. */
-
 @media only screen and (max-width: 1024px) and (min-width: 601px) {
   .empty-spacer {
     width: 300px;
